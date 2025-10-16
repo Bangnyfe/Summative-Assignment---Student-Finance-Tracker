@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Finance Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Student Finance Tracker</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><button data-section="about">About</button></li>
+        <li><button data-section="dashboard">Dashboard / Stats</button></li>
+        <li><button data-section="records">Records</button></li>
+        <li><button data-section="categories">Add/Edit Categories</button></li>
+        <li><button data-section="settings">Settings</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="active">
+      <h2>About This Project</h2>
+      <p>
+        The <strong>Student Finance Tracker</strong> helps you manage your personal budget by
+        recording expenses, viewing spending trends, and customizing categories for your
+        daily, weekly, monthly, or yearly expenses.
+      </p>
+      <p>
+        <strong>Sections Overview:</strong>
+        <ul>
+          <li><b>Dashboard / Stats:</b> See summaries and charts of your spending.</li>
+          <li><b>Records:</b> View all your transactions and filter by date range.</li>
+          <li><b>Add/Edit Categories:</b> Create and manage your own expense categories.</li>
+          <li><b>Settings:</b> Choose your preferred currency and display mode (light/dark).</li>
+        </ul>
+      </p>
+      <p>
+        <strong>Contact:</strong><br />
+        GitHub: <a href="https://github.com/Bangnyfe" target="_blank">Bangnyfe</a><br />
+        Email: <a href="mailto:a.daib@alustudent.com">a.daib@alustudent.com</a>
+      </p>
+    </section>
+
+    <!-- Dashboard / Stats Section -->
+    <section id="dashboard">
+      <h2>Dashboard / Stats</h2>
+      <div class="timeframe-selector">
+        <label for="stats-range">Select Time Frame:</label>
+        <select id="stats-range">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly" selected>Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <input type="month" id="stats-date" />
+      </div>
+
+      <div class="chart-container">
+        <h3>Spending Overview</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h3>Category Breakdown</h3>
+        <canvas id="donutChart"></canvas>
+      </div>
+
+      <div class="totals">
+        <p><strong>Total Expenses:</strong> <span id="total-expenses">0</span></p>
+        <p><strong>Average per Day:</strong> <span id="avg-expenses">0</span></p>
+      </div>
+
+      <div class="chart-filter">
+        <p>Active filter: <span id="active-filter">None</span></p>
+        <button id="clear-filter" type="button">Clear Filter</button>
+      </div>
+    </section>
+
+    <!-- Records Section -->
+    <section id="records">
+      <h2>Records</h2>
+      <div class="filters">
+        <label for="record-range">View by:</label>
+        <select id="record-range">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly" selected>Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <input type="month" id="record-date" />
+      </div>
+
+      <table id="records-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Records populated here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Add/Edit Categories Section -->
+    <section id="categories">
+      <h2>Add / Edit Categories</h2>
+      <form id="category-form">
+        <input type="text" id="category-input" placeholder="Enter new category" required />
+        <button type="submit">Add Category</button>
+      </form>
+
+      <ul id="category-list">
+        <!-- Categories populated here -->
+      </ul>
+
+      <hr />
+      <h3>Add New Record</h3>
+      <form id="record-form">
+        <label for="record-date-input">Date:</label>
+        <input type="date" id="record-date-input" required />
+
+        <label for="record-desc-input">Description:</label>
+        <input type="text" id="record-desc-input" placeholder="e.g., Lunch at cafeteria" required />
+
+        <label for="record-category-select">Category:</label>
+        <select id="record-category-select"></select>
+
+        <label for="record-amount-input">Amount:</label>
+        <input type="number" id="record-amount-input" step="0.01" min="0" placeholder="0.00" required />
+
+        <button type="submit">Add Record</button>
+      </form>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings">
+      <h2>Settings</h2>
+      <div class="setting-group">
+        <label for="currency-select">Select Base Currency:</label>
+        <select id="currency-select">
+          <option value="RWF" selected>Rwandan Franc (RWF)</option>
+          <option value="USD">US Dollar ($)</option>
+          <option value="CAD">Canadian Dollar (C$)</option>
+          <option value="GBP">British Pound (£)</option>
+          <option value="CNY">Chinese Yuan (¥)</option>
+          <option value="EUR">Euro (€)</option>
+          <option value="JPY">Japanese Yen (¥)</option>
+        </select>
+      </div>
+
+      <div class="setting-group">
+        <label for="format-select">Currency Format:</label>
+        <select id="format-select">
+          <option value="us">$1,234.56</option>
+          <option value="eu">$1.234,56</option>
+          <option value="uk">£1,234.56</option>
+        </select>
+      </div>
+
+      <div class="setting-group">
+        <label for="theme-toggle">Theme:</label>
+        <select id="theme-toggle">
+          <option value="dark" selected>Dark Mode</option>
+          <option value="light">Light Mode</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label>Danger Zone:</label>
+        <button id="delete-data-btn" type="button" style="background:#c0392b;color:#fff;padding:6px 10px;border:none;border-radius:4px;cursor:pointer;">Delete All Saved Data</button>
+        <p style="font-size:12px;color:#666;margin:6px 0 0;">This will permanently remove saved records, categories and settings from localStorage.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Student Finance Tracker</p>
+  </footer>
+
+  <script src="records.js"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="functionality.js"></script>
+</body>
+</html>
