@@ -59,8 +59,12 @@ Accessibility (a11y) notes
 - Charts: add descriptive aria-labels and a textual summary for each chart (e.g., visually-hidden <p> summarizing totals).
 - Testing: run Lighthouse (accessibility category) and axe-core during development.
 
-- Manual tests
-  - Add a category; add a record (date, description, category, amount); verify record appears in Records and Dashboard.
-  - Hover chart segments — tooltips display currency-formatted amounts.
-  - Click a chart segment — Records should filter to that category; clear filter works.
-  - Settings -> Delete All Saved Data — confirm data cleared; optionally reseed works.
+Manual tests
+- Add a category; add a record (date, description, category, amount); verify record appears in Records and Dashboard.
+- Hover chart segments — tooltips display currency-formatted amounts.
+- Click a chart segment — Records should filter to that category; clear filter works.
+- Settings -> Delete All Saved Data — confirm data cleared; optionally reseed works.
+
+References:
+- http://chartjs.org/docs/latest/samples/information.html
+- https://play.google.com/store/apps/details?id=com.jojdevx.expense.tracker&hl=en
