@@ -1,4 +1,8 @@
 # Summative-Assignment---Student-Finance-Tracker
+How to download:
+- Click on the green code button the on the top-right corner.
+- Select "Download zip"
+- Open the file, then double click "Student-finance-tracker.html".
 
 Project snapshot
 - Chosen theme: Dark-first responsive UI with a light mode option (can be changed in Settings).
