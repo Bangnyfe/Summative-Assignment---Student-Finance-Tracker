@@ -4,6 +4,8 @@ How to download:
 - Select "Download zip"
 - Open the file, then double click "Student-finance-tracker.html".
 
+Demo Video: https://vimeo.com/1128025558/23db8fdffc?fl=tl&fe=ec
+
 Project snapshot
 - Chosen theme: Dark-first responsive UI with a light mode option (can be changed in Settings).
 - Purpose: record personal expenses, manage categories, visualize spending (bar + pie charts), and persist data in localStorage.
