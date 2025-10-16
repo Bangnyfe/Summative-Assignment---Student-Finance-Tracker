@@ -55,17 +55,6 @@ Accessibility (a11y) notes
 - Charts: add descriptive aria-labels and a textual summary for each chart (e.g., visually-hidden <p> summarizing totals).
 - Testing: run Lighthouse (accessibility category) and axe-core during development.
 
-How to run the app (quick)
-- Open the HTML file in your default browser (Windows PowerShell):
-  - start 'c:\Users\ahmad\Desktop\Front end summative\Student-finance-tracker.html'
-- Or run a local static server (recommended for Chart.js/modern APIs):
-  - Install http-server if needed: `npm i -g http-server`
-  - Serve the folder:
-    - PowerShell:
-      - cd 'c:\Users\ahmad\Desktop\Front end summative'
-      - http-server -c-1
-    - Open the served URL shown in the terminal (e.g., http://127.0.0.1:8080/Student-finance-tracker.html)
-
 - Manual tests
   - Add a category; add a record (date, description, category, amount); verify record appears in Records and Dashboard.
   - Hover chart segments — tooltips display currency-formatted amounts.
