@@ -6,6 +6,8 @@ How to download:
 
 Demo Video: https://vimeo.com/1128025558/23db8fdffc?fl=tl&fe=ec
 
+Github Pages Link: https://bangnyfe.github.io/Summative-Assignment---Student-Finance-Tracker/
+
 Project snapshot
 - Chosen theme: Dark-first responsive UI with a light mode option (can be changed in Settings).
 - Purpose: record personal expenses, manage categories, visualize spending (bar + pie charts), and persist data in localStorage.
